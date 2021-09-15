@@ -1,9 +1,7 @@
 <h1>Lecture notes</h1>
 
 
-<h3>Lecture 1</h3>
-
-
+<!-- READ: p.29 ->  -->
 Programs can be:
 
 
