@@ -28,16 +28,36 @@ end
 %Output The stack
 %Valid  +, -, *, and /, with / being floating point division.
 
+    % Operators = operators( % Define record
+    %     plus: fun {$ X Y} X + Y end
+    %     minus: fun {$ X Y} X - Y end
+    %     multiply: fun {$ X Y} X * Y end
+    %     divide: fun {$ X Y} X / Y end
+    % )
+
 declare fun {Interpret Tokens} Operators in
 
-    Operators = operators( % Define record
-        plus: fun {$ X Y} X + Y end
-        minus: fun {$ X Y} X - Y end
-        multiply: fun {$ X Y} X * Y end
-        divide: fun {$ X Y} X / Y end
-    )
+    case Tokens of Head | Tail then
+        case Head of operator(type:Op)|Tail then
 
-    Operators.operators.plus
+            {Show "Head"}
+        [] number(N)|Tail then
+            {Show "tall"}
+
+            % pop 2 from stack
+            % perform opertaion type
+            % put back on stack
+
+            
+
+            % put on stack
+        else {Show "error"}
+        end
+        {Interpret Tail} % recurse
+        
+    % if nil (end of list) then return stack[0]
+    else nil
+    end
 
 end
 
