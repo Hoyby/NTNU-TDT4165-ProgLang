@@ -35,27 +35,28 @@ end
     %     divide: fun {$ X Y} X / Y end
     % )
 
-declare fun {Interpret Tokens} Operators in
+        % pop 2 from stack
+        % perform opertaion type
+        % put back on stack
 
+        % put on stack
+
+declare
+fun {Interpret Tokens}
+    
     case Tokens of Head | Tail then
-        case Head of operator(type:Op)|Tail then
 
-            {Show "Head"}
-        [] number(N)|Tail then
-            {Show "tall"}
+        case Head of operator(type:Op) then
+            Op | {Interpret Tail}
 
-            % pop 2 from stack
-            % perform opertaion type
-            % put back on stack
+        [] number(N) then
+            N | {Interpret Tail}
 
-            
+        else nil
 
-            % put on stack
-        else {Show "error"}
         end
-        {Interpret Tail} % recurse
         
-    % if nil (end of list) then return stack[0]
+        
     else nil
     end
 
